@@ -1,7 +1,7 @@
 # MQAttach Maven Public Repo #
 Public Repo used by MQAttach Development Team to store and share Maven artifacts that require Public access.
 
-This repository is used to store and share artifacts for the IntegratD Logging Connector for Boomi that 
+This repository is also used to store and share artifacts for the IntegratD Logging Connector for Boomi that 
 cannot be shared via the Boomi Component Exchange to due to security restrictions.
 
 # IntegratD Boomi Connector Libraries #
