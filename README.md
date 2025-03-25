@@ -8,7 +8,7 @@ cannot be shared via the Boomi Component Exchange to due to security restriction
 
 ### Additional MQ Messaging Server Libraries ###
 
-Please download the following JAR file and upload it to your Boomi account library to use the IntegratD Logging Connector with the appropriate MQ Messaging Server.
+Please download the following zip files, unzip them and upload the contents to your Boomi account library to use the IntegratD Logging Connector with the appropriate MQ Messaging Server.
 * [Azure Service Bus](https://mqattach.github.io/public-maven-packages/standalone/azure-servicebus-jms-1.0.2.zip)
 
 1. Unzip the file 
@@ -19,4 +19,4 @@ Please download the following JAR file and upload it to your Boomi account libra
 6. You should now have support for Azure Service Bus in your IntegratD for Boomi Logging Connector
 
 the JAR files that it references are
-deployed to the /<installation_directory>/userlib/
+deployed to the /{atom installation_directory}/userlib/
