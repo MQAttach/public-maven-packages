@@ -8,10 +8,9 @@
     -->
   <licenses>
     <license>
-      <name>Apache License, Version 2.0</name>
-      <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <name>IBM International Program License Agreement</name>
+      <url>https://www.ibm.com/support/customer/csol/terms/?id=L-ASCR-N5A7RX</url>
       <distribution>repo</distribution>
-      <comments>IBM International Program License Agreement - https://www.ibm.com/support/customer/csol/terms/?id=L-ASCR-N5A7RX</comments>
     </license>
   </licenses>
   <modelVersion>4.0.0</modelVersion>
