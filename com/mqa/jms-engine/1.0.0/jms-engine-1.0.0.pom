@@ -54,6 +54,19 @@
     <github.owner>MQAttach</github.owner>
     <github.repo>MQA.JMS.Engine</github.repo>
   </properties>
+  <repositories>
+    <repository>
+      <id>github-pages</id>
+      <name>GitHub Pages MQAttach</name>
+      <url>https://mqattach.github.io/public-maven-packages/</url>
+      <releases>
+        <enabled>true</enabled>
+        <updatePolicy>always</updatePolicy>
+        <checksumPolicy>warn</checksumPolicy>
+      </releases>
+    </repository>
+  </repositories>
+
   <dependencyManagement>
     <dependencies>
       <dependency>
@@ -144,7 +157,7 @@
     <!-- IBM WEBSPHERE MQ -->
     <dependency>
       <groupId>com.ibm.mq</groupId>
-      <artifactId>com.ibm.mq.jakarta.client</artifactId>
+      <artifactId>com.ibm.mq.jakarta.client-nolic</artifactId>
       <version>${ibm-mq.version}</version>
     </dependency>
 
