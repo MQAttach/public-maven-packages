@@ -138,6 +138,7 @@
       <groupId>com.microsoft.azure</groupId>
       <artifactId>azure-servicebus-jms</artifactId>
       <version>${azure-messaging.version}</version>
+      <scope>provided</scope>
     </dependency>
 
     <!-- IBM WEBSPHERE MQ -->
