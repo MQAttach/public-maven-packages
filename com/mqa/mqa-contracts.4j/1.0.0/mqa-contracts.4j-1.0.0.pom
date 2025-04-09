@@ -140,6 +140,6 @@
     <github.owner>MQAttach</github.owner>
     <mongodb.driver.version>3.12.14</mongodb.driver.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <commons-lang3.version>3.17.0</commons-lang3.version>
+    <commons-lang3.version>3.14.0</commons-lang3.version>
   </properties>
 </project>
