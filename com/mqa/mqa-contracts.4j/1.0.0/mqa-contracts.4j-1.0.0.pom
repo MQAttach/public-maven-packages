@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.mqa</groupId>
+  <artifactId>mqa-contracts.4j</artifactId>
+  <name>MQAttach Common Java Contracts</name>
+  <version>1.0.0</version>
+  <description>Library to provide common contracts for MQAttach Java projects.</description>
+  <developers>
+    <developer>
+      <name>MQAttach Developer Team</name>
+      <email>support@mqattach.com</email>
+      <organization>MQAttach Canada Inc</organization>
+      <organizationUrl>https://www.mqattach.com</organizationUrl>
+      <properties>
+        <copyright>Copyright (c) 2025 MQAttach Canada Inc. All rights reserved.</copyright>
+      </properties>
+    </developer>
+  </developers>
+  <licenses>
+    <license>
+      <name>MQAttach License Agreement</name>
+      <url>https://www.mqattach.com/license/</url>
+      <distribution>manual</distribution>
+      <comments>Copyright (c) 2025 MQAttach Inc. All rights reserved.  All rights reserved. Use restricted by license terms.</comments>
+    </license>
+  </licenses>
+  <scm>
+    <connection>scm:git:https://github.com/${github.owner}/${github.repo}.git</connection>
+    <developerConnection>scm:git:https://github.com/${github.owner}/${github.repo}.git</developerConnection>
+    <tag>${project.version}</tag>
+    <url>https://github.com/${github.owner}/${github.repo}</url>
+  </scm>
+  <organization>
+    <name>MQAttach Inc</name>
+    <url>https://mqattach.com</url>
+  </organization>
+  <build>
+    <finalName>com.mqa.contracts-4j</finalName>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.10.1</version>
+        <configuration>
+          <source>${maven.compiler.source}</source>
+          <target>${maven.compiler.target}</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.22.2</version>
+      </plugin>
+      <plugin>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>3.2.1</version>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <goals>
+              <goal>jar-no-fork</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>3.4.1</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+            <configuration>
+              <createDependencyReducedPom>true</createDependencyReducedPom>
+              <transformers>
+                <transformer>
+                  <mainClass>com.com.mqa.jms.engine.tests.InitialBasic</mainClass>
+                </transformer>
+                <transformer />
+                <transformer>
+                  <resource>META-INF/spring.handlers</resource>
+                </transformer>
+                <transformer>
+                  <resource>META-INF/spring.schemas</resource>
+                </transformer>
+              </transformers>
+              <filters>
+                <filter>
+                  <artifact>*:*</artifact>
+                  <excludes>
+                    <exclude>META-INF/*.SF</exclude>
+                    <exclude>META-INF/*.DSA</exclude>
+                    <exclude>META-INF/*.RSA</exclude>
+                  </excludes>
+                </filter>
+              </filters>
+              <relocations />
+              <shadedArtifactAttached>true</shadedArtifactAttached>
+              <shadedClassifierName>uber</shadedClassifierName>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-deploy-plugin</artifactId>
+        <version>3.1.0</version>
+        <configuration>
+          <skip>false</skip>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+  <dependencies>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.30</version>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+  <distributionManagement>
+    <repository>
+      <id>release-repository</id>
+      <name>Release Repository</name>
+      <url>https://your-repository-url/releases</url>
+    </repository>
+    <snapshotRepository>
+      <id>snapshot-repository</id>
+      <name>Snapshot Repository</name>
+      <url>https://your-repository-url/snapshots</url>
+    </snapshotRepository>
+  </distributionManagement>
+  <properties>
+    <maven.compiler.source>11</maven.compiler.source>
+    <jackson-version>2.17.2</jackson-version>
+    <github.repo>MQA.Contracts.4J</github.repo>
+    <lombok.version>1.18.30</lombok.version>
+    <maven.compiler.target>11</maven.compiler.target>
+    <github.owner>MQAttach</github.owner>
+    <mongodb.driver.version>3.12.14</mongodb.driver.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <commons-lang3.version>3.17.0</commons-lang3.version>
+  </properties>
+</project>

@@ -1,187 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-
   <groupId>com.mqa</groupId>
   <artifactId>jms-engine</artifactId>
-  <version>1.0.0</version>
-  <packaging>jar</packaging>
-
   <name>MQAttach JMS Framework</name>
-  <description>
-    A resilient JMS messaging framework with automatic reconnection and pooling capabilities
-    Supports ActiveMQ, RabbitMQ, Azure Service Bus and IBM MQ
-    Requires Java 11 or higher
-  </description>
-
-
-  <properties>
-    <maven.compiler.source>11</maven.compiler.source>
-    <maven.compiler.target>11</maven.compiler.target>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <resilience4j.version>1.7.1</resilience4j.version>
-    <jakarta.jms.version>3.1.0</jakarta.jms.version>
-    <slf4j.version>2.0.13</slf4j.version>
-    <lombok.version>1.18.30</lombok.version>
-    <logback.version>1.3.15</logback.version>
-    <commons-lang3.version>3.17.0</commons-lang3.version>
-
-    <!-- JAVA 8 VERSIONS
-    <pooled-jms.version>1.2.8</pooled-jms.version>
-    <jakarta.jms.version>3.0.0</jakarta.jms.version>
-    <activemq.version>5.16.0</activemq.version>
-    <rabbitmq-jms.version>2.6.0</rabbitmq-jms.version>
-    <ibm-mq.version>9.3.3.0</ibm-mq.version>
-    <azure-messaging.version>1.0.2</azure-messaging.version>
-    -->
-
-    <!-- JAVA 11 VERSIONS -->
-    <pooled-jms.version>3.1.7</pooled-jms.version>
-    <jakarta.jms.version>3.1.0</jakarta.jms.version>
-    <activemq.version>5.19.0</activemq.version>
-    <rabbitmq-jms.version>3.4.0</rabbitmq-jms.version>
-    <ibm-mq.version>9.4.2.0</ibm-mq.version>
-    <azure-messaging.version>1.0.2</azure-messaging.version>
-
-
-    <!-- JAVA 21 VERSIONS -->
-    <pooled-jms.version>3.1.7</pooled-jms.version>
-    <rabbitmq-jms.version>3.4.0</rabbitmq-jms.version>
-
-    <!-- GitHub Packaging properties -->
-    <github.owner>MQAttach</github.owner>
-    <github.repo>MQA.JMS.Engine</github.repo>
-  </properties>
-  <repositories>
-    <repository>
-      <id>github-pages</id>
-      <name>GitHub Pages MQAttach</name>
-      <url>https://mqattach.github.io/public-maven-packages/</url>
-      <releases>
-        <enabled>true</enabled>
-        <updatePolicy>always</updatePolicy>
-        <checksumPolicy>warn</checksumPolicy>
-      </releases>
-    </repository>
-  </repositories>
-
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>org.projectlombok</groupId>
-        <artifactId>lombok</artifactId>
-        <version>${lombok.version}</version>
-        <scope>provided</scope>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
-  <dependencies>
-    <!-- RESILIENCE4J RETRY AND CIRCUIT BREAKER -->
-    <dependency>
-      <groupId>io.github.resilience4j</groupId>
-      <artifactId>resilience4j-retry</artifactId>
-      <version>${resilience4j.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>io.github.resilience4j</groupId>
-      <artifactId>resilience4j-circuitbreaker</artifactId>
-      <version>${resilience4j.version}</version>
-    </dependency>
-
-    <!-- LOMBOK -->
-    <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
-      <version>${lombok.version}</version>
-      <scope>provided</scope>
-    </dependency>
-
-    <!-- COMMONS LANG -->
-    <dependency>
-      <groupId>org.apache.commons</groupId>
-      <artifactId>commons-lang3</artifactId>
-      <version>${commons-lang3.version}</version>
-    </dependency>
-
-    <!-- SLF4J API -->
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-api</artifactId>
-      <version>${slf4j.version}</version>
-    </dependency>
-
-    <!-- LOGBACK CLASSIC (Implementation) -->
-    <dependency>
-      <groupId>ch.qos.logback</groupId>
-      <artifactId>logback-classic</artifactId>
-      <version>${logback.version}</version>
-    </dependency>
-
-    <!-- POOLED JMS -->
-    <dependency>
-      <groupId>org.messaginghub</groupId>
-      <artifactId>pooled-jms</artifactId>
-      <version>${pooled-jms.version}</version>
-    </dependency>
-
-    <!-- JAKARTA JMS API -->
-    <dependency>
-      <groupId>jakarta.jms</groupId>
-      <artifactId>jakarta.jms-api</artifactId>
-      <version>${jakarta.jms.version}</version>
-    </dependency>
-    <!-- ACTIVE MQ -->
-    <dependency>
-      <groupId>org.apache.activemq</groupId>
-      <artifactId>activemq-client</artifactId>
-      <version>${activemq.version}</version>
-    </dependency>
-
-    <!-- RABBIT MQ-->
-    <dependency>
-      <groupId>com.rabbitmq.jms</groupId>
-      <artifactId>rabbitmq-jms</artifactId>
-      <version>${rabbitmq-jms.version}</version>
-    </dependency>
-
-    <!-- AZURE SERVICE BUS -->
-    <dependency>
-      <groupId>com.microsoft.azure</groupId>
-      <artifactId>azure-servicebus-jms</artifactId>
-      <version>${azure-messaging.version}</version>
-      <scope>provided</scope>
-    </dependency>
-
-    <!-- IBM WEBSPHERE MQ -->
-    <dependency>
-      <groupId>com.ibm.mq</groupId>
-      <artifactId>com.ibm.mq.jakarta.client-nolic</artifactId>
-      <version>${ibm-mq.version}</version>
-    </dependency>
-
-    <!-- TEST DEPENDENCIES -->
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter</artifactId>
-      <version>5.8.2</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.mockito</groupId>
-      <artifactId>mockito-core</artifactId>
-      <version>4.5.1</version>
-      <scope>test</scope>
-    </dependency>
-
-  </dependencies>
-
+  <version>1.0.0</version>
+  <description>A resilient JMS messaging framework with automatic reconnection and pooling capabilities
+        Supports ActiveMQ, RabbitMQ, Azure Service Bus and IBM MQ
+        Requires Java 11 or higher</description>
+  <developers>
+    <developer>
+      <name>MQAttach Developer Team</name>
+      <email>support@mqattach.com</email>
+      <organization>MQAttach Canada Inc</organization>
+      <organizationUrl>https://www.mqattach.com</organizationUrl>
+      <properties>
+        <copyright>Copyright (c) 2025 MQAttach Canada Inc. All rights reserved.</copyright>
+      </properties>
+    </developer>
+  </developers>
+  <licenses>
+    <license>
+      <name>MQAttach License Agreement</name>
+      <url>https://www.mqattach.com/license/</url>
+      <distribution>manual</distribution>
+      <comments>Copyright (c) 2025 MQAttach Inc. All rights reserved.  All rights reserved. Use restricted by license terms.</comments>
+    </license>
+  </licenses>
+  <scm>
+    <connection>scm:git:git://github.com/${github.owner}/${github.repo}.git</connection>
+    <developerConnection>scm:git:ssh://github.com:${github.owner}/${github.repo}.git</developerConnection>
+    <url>https://github.com/${github.owner}/${github.repo}</url>
+  </scm>
+  <organization>
+    <name>MQAttach Inc</name>
+    <url>https://mqattach.com</url>
+  </organization>
   <build>
     <plugins>
-      <!-- Compiler Plugin -->
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.10.1</version>
         <configuration>
@@ -189,17 +46,11 @@
           <target>${maven.compiler.target}</target>
         </configuration>
       </plugin>
-
-      <!-- Surefire Plugin for running tests -->
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
         <version>2.22.2</version>
       </plugin>
-
-      <!-- Source Plugin for attaching sources -->
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-source-plugin</artifactId>
         <version>3.2.1</version>
         <executions>
@@ -211,10 +62,7 @@
           </execution>
         </executions>
       </plugin>
-
-      <!-- Javadoc Plugin for generating documentation -->
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
         <version>3.4.1</version>
         <executions>
@@ -226,10 +74,7 @@
           </execution>
         </executions>
       </plugin>
-
-      <!-- Shade Plugin for creating an uber JAR -->
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-shade-plugin</artifactId>
         <version>3.4.1</version>
         <executions>
@@ -241,16 +86,14 @@
             <configuration>
               <createDependencyReducedPom>true</createDependencyReducedPom>
               <transformers>
-                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                <transformer>
                   <mainClass>com.com.mqa.jms.engine.tests.InitialBasic</mainClass>
                 </transformer>
-                <!-- Merge META-INF/services files -->
-                <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
-                <!-- Merge properties files -->
-                <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+                <transformer />
+                <transformer>
                   <resource>META-INF/spring.handlers</resource>
                 </transformer>
-                <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+                <transformer>
                   <resource>META-INF/spring.schemas</resource>
                 </transformer>
               </transformers>
@@ -264,25 +107,14 @@
                   </excludes>
                 </filter>
               </filters>
-              <relocations>
-                <!-- Optionally relocate common dependencies to avoid conflicts -->
-                <!--
-                <relocation>
-                    <pattern>com.fasterxml.jackson</pattern>
-                    <shadedPattern>com.example.jms.shaded.jackson</shadedPattern>
-                </relocation>
-                -->
-              </relocations>
+              <relocations />
               <shadedArtifactAttached>true</shadedArtifactAttached>
               <shadedClassifierName>uber</shadedClassifierName>
             </configuration>
           </execution>
         </executions>
       </plugin>
-
-      <!-- Deploy Plugin -->
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-deploy-plugin</artifactId>
         <version>3.1.0</version>
         <configuration>
@@ -291,47 +123,104 @@
       </plugin>
     </plugins>
   </build>
+  <repositories>
+    <repository>
+      <releases>
+        <updatePolicy>always</updatePolicy>
+        <checksumPolicy>warn</checksumPolicy>
+      </releases>
+      <id>github-pages</id>
+      <name>GitHub Pages MQAttach</name>
+      <url>https://mqattach.github.io/public-maven-packages/</url>
+    </repository>
+  </repositories>
+  <dependencies>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.30</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.microsoft.azure</groupId>
+      <artifactId>azure-servicebus-jms</artifactId>
+      <version>1.0.2</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <version>5.8.2</version>
+      <scope>test</scope>
+      <exclusions>
+        <exclusion>
+          <artifactId>junit-jupiter-api</artifactId>
+          <groupId>org.junit.jupiter</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>junit-jupiter-params</artifactId>
+          <groupId>org.junit.jupiter</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>junit-jupiter-engine</artifactId>
+          <groupId>org.junit.jupiter</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-core</artifactId>
+      <version>4.5.1</version>
+      <scope>test</scope>
+      <exclusions>
+        <exclusion>
+          <artifactId>byte-buddy</artifactId>
+          <groupId>net.bytebuddy</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>byte-buddy-agent</artifactId>
+          <groupId>net.bytebuddy</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>objenesis</artifactId>
+          <groupId>org.objenesis</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+  </dependencies>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <version>${lombok.version}</version>
+        <scope>provided</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
   <distributionManagement>
     <repository>
       <id>github-package</id>
       <name>GitHub Packages</name>
       <url>https://maven.pkg.github.com/${github.owner}/${github.repo}</url>
     </repository>
-    <!--- Uncomment the following to deploy to a snapshot repository
-    <snapshotRepository>
-        <id>your-snapshot-repo-id</id>
-        <name>Your Snapshot Repository</name>
-        <url>https://your-repo-url/repository/snapshots</url>
-    </snapshotRepository>
-    -->
   </distributionManagement>
-
-  <!-- SCM information -->
-  <scm>
-    <connection>scm:git:git://github.com/${github.owner}/${github.repo}.git</connection>
-    <developerConnection>scm:git:ssh://github.com:${github.owner}/${github.repo}.git</developerConnection>
-    <url>https://github.com/${github.owner}/${github.repo}</url>
-  </scm>
-  <licenses>
-    <license>
-      <name>MQAttach License Agreement</name>
-      <url>https://www.mqattach.com/license/</url>
-      <distribution>manual</distribution>
-      <comments>Copyright (c) 2025 MQAttach Inc. All rights reserved.  All rights reserved. Use restricted by license terms.</comments>
-    </license>
-  </licenses>
-
-  <developers>
-    <developer>
-      <name>MQAttach Developer Team</name>
-      <email>support@mqattach.com</email>
-      <organization>MQAttach Canada Inc</organization>
-      <organizationUrl>https://www.mqattach.com</organizationUrl>
-      <properties>
-        <copyright>Copyright (c) 2025 MQAttach Canada Inc. All rights reserved.</copyright>
-      </properties>
-    </developer>
-  </developers>
-
-
+  <properties>
+    <jakarta.jms.version>3.1.0</jakarta.jms.version>
+    <activemq.version>5.19.0</activemq.version>
+    <github.repo>MQA.JMS.Engine</github.repo>
+    <github.owner>MQAttach</github.owner>
+    <slf4j.version>2.0.13</slf4j.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <commons-lang3.version>3.17.0</commons-lang3.version>
+    <ibm-mq.version>9.4.2.0</ibm-mq.version>
+    <resilience4j.version>1.7.1</resilience4j.version>
+    <logback.version>1.3.15</logback.version>
+    <maven.compiler.source>11</maven.compiler.source>
+    <azure-messaging.version>1.0.2</azure-messaging.version>
+    <lombok.version>1.18.30</lombok.version>
+    <maven.compiler.target>11</maven.compiler.target>
+    <rabbitmq-jms.version>3.4.0</rabbitmq-jms.version>
+    <pooled-jms.version>3.1.7</pooled-jms.version>
+  </properties>
 </project>
