@@ -104,10 +104,39 @@
       </plugin>
       <plugin>
         <artifactId>maven-deploy-plugin</artifactId>
-        <version>3.1.0</version>
+        <version>3.1.1</version>
         <configuration>
           <skip>false</skip>
         </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <version>3.1.0</version>
+        <executions>
+          <execution>
+            <id>generate-checksums</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>run</goal>
+            </goals>
+            <configuration>
+              <target>
+                <checksum>
+                  <fileset>
+                    <include />
+                    <include />
+                  </fileset>
+                </checksum>
+                <checksum>
+                  <fileset>
+                    <include />
+                    <include />
+                  </fileset>
+                </checksum>
+              </target>
+            </configuration>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>
@@ -121,9 +150,8 @@
   </dependencies>
   <distributionManagement>
     <repository>
-      <id>release-repository</id>
-      <name>Release Repository</name>
-      <url>https://your-repository-url/releases</url>
+      <id>local-staging</id>
+      <url>file://${project.basedir}/staging-repo</url>
     </repository>
     <snapshotRepository>
       <id>snapshot-repository</id>
