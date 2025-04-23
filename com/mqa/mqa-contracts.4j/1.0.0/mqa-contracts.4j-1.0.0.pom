@@ -10,19 +10,15 @@
     <developer>
       <name>MQAttach Developer Team</name>
       <email>support@mqattach.com</email>
-      <organization>MQAttach Canada Inc</organization>
       <organizationUrl>https://www.mqattach.com</organizationUrl>
-      <properties>
-        <copyright>Copyright (c) 2025 MQAttach Canada Inc. All rights reserved.</copyright>
-      </properties>
     </developer>
   </developers>
   <licenses>
     <license>
-      <name>MQAttach License Agreement</name>
-      <url>https://www.mqattach.com/license/</url>
-      <distribution>manual</distribution>
-      <comments>Copyright (c) 2025 MQAttach Inc. All rights reserved.  All rights reserved. Use restricted by license terms.</comments>
+      <name>MQAttach Shared Library Binary-Only License</name>
+      <url>https://mqattach.com/boomi-connector-license/#connector</url>
+      <distribution>rep</distribution>
+      <comments>Binary-only Library. Source not publicly released. Licensed only for use with  MQAttach Connectors on the Boomi Platform. Use restricted by license terms.</comments>
     </license>
   </licenses>
   <scm>
@@ -49,18 +45,6 @@
       <plugin>
         <artifactId>maven-surefire-plugin</artifactId>
         <version>2.22.2</version>
-      </plugin>
-      <plugin>
-        <artifactId>maven-source-plugin</artifactId>
-        <version>3.2.1</version>
-        <executions>
-          <execution>
-            <id>attach-sources</id>
-            <goals>
-              <goal>jar-no-fork</goal>
-            </goals>
-          </execution>
-        </executions>
       </plugin>
       <plugin>
         <artifactId>maven-shade-plugin</artifactId>
@@ -153,11 +137,6 @@
       <id>local-staging</id>
       <url>file://${project.basedir}/staging-repo</url>
     </repository>
-    <snapshotRepository>
-      <id>snapshot-repository</id>
-      <name>Snapshot Repository</name>
-      <url>https://your-repository-url/snapshots</url>
-    </snapshotRepository>
   </distributionManagement>
   <properties>
     <maven.compiler.source>11</maven.compiler.source>

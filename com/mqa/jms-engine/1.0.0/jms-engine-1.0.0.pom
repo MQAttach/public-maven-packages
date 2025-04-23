@@ -12,11 +12,7 @@
     <developer>
       <name>MQAttach Developer Team</name>
       <email>support@mqattach.com</email>
-      <organization>MQAttach Canada Inc</organization>
       <organizationUrl>https://www.mqattach.com</organizationUrl>
-      <properties>
-        <copyright>Copyright (c) 2025 MQAttach Canada Inc. All rights reserved.</copyright>
-      </properties>
     </developer>
   </developers>
   <licenses>
@@ -49,18 +45,6 @@
       <plugin>
         <artifactId>maven-surefire-plugin</artifactId>
         <version>2.22.2</version>
-      </plugin>
-      <plugin>
-        <artifactId>maven-source-plugin</artifactId>
-        <version>3.2.1</version>
-        <executions>
-          <execution>
-            <id>attach-sources</id>
-            <goals>
-              <goal>jar-no-fork</goal>
-            </goals>
-          </execution>
-        </executions>
       </plugin>
       <plugin>
         <artifactId>maven-javadoc-plugin</artifactId>
@@ -120,6 +104,35 @@
         <configuration>
           <skip>false</skip>
         </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <version>3.1.0</version>
+        <executions>
+          <execution>
+            <id>generate-checksums</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>run</goal>
+            </goals>
+            <configuration>
+              <target>
+                <checksum>
+                  <fileset>
+                    <include />
+                    <include />
+                  </fileset>
+                </checksum>
+                <checksum>
+                  <fileset>
+                    <include />
+                    <include />
+                  </fileset>
+                </checksum>
+              </target>
+            </configuration>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>
@@ -200,9 +213,8 @@
   </dependencyManagement>
   <distributionManagement>
     <repository>
-      <id>github-package</id>
-      <name>GitHub Packages</name>
-      <url>https://maven.pkg.github.com/${github.owner}/${github.repo}</url>
+      <id>local-staging</id>
+      <url>file://${project.basedir}/staging-repo</url>
     </repository>
   </distributionManagement>
   <properties>
