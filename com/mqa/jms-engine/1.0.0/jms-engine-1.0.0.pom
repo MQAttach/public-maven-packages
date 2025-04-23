@@ -17,10 +17,10 @@
   </developers>
   <licenses>
     <license>
-      <name>MQAttach License Agreement</name>
-      <url>https://www.mqattach.com/license/</url>
-      <distribution>manual</distribution>
-      <comments>Copyright (c) 2025 MQAttach Inc. All rights reserved.  All rights reserved. Use restricted by license terms.</comments>
+      <name>MQAttach Shared Library Binary-Only License</name>
+      <url>https://mqattach.com/boomi-connector-license/#shared-libs</url>
+      <distribution>repo</distribution>
+      <comments>Binary-only Library. Source not publicly released. Licensed only for use with  MQAttach Connectors on the Boomi Platform. Use restricted by license terms.</comments>
     </license>
   </licenses>
   <scm>

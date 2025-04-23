@@ -16,8 +16,8 @@
   <licenses>
     <license>
       <name>MQAttach Shared Library Binary-Only License</name>
-      <url>https://mqattach.com/boomi-connector-license/#connector</url>
-      <distribution>rep</distribution>
+      <url>https://mqattach.com/boomi-connector-license/#shared-libs</url>
+      <distribution>repo</distribution>
       <comments>Binary-only Library. Source not publicly released. Licensed only for use with  MQAttach Connectors on the Boomi Platform. Use restricted by license terms.</comments>
     </license>
   </licenses>
