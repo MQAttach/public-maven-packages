@@ -10,6 +10,10 @@
 # This is because BOOMI SYNK checks don't allow no license and IBM have
 # a packaging problem where they don't include a pom.xml in their
 # packaging
+# Note we don't do anything to the IBM jar except include a pom.xml so that SYNK passed
+# the pom.xml we include is the IBM original one located in maven and due to a packaging error on the IBM side
+# they don't include it
+# Therefore we are simply fixing an IBM packaging error
 #
 # output/<groupId-as-path>/<artifactId>/<version>/
 #
